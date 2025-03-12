@@ -87,7 +87,7 @@ const LandingPage = () => {
   {[5, 15, 30].map((num) => (
     <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
       <h3 className="text-xl font-semibold">X{num}</h3>
-      <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-50 object-cover mt-2" />
+      <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-65 object-cover mt-2" />
       <p className="text-gray-700">${num * ticketPrice}</p>
     </div>
   ))}
