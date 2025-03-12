@@ -71,7 +71,7 @@ const LandingPage = () => {
       <div className="bg-black text-white px-6 py-3 rounded-lg text-center mt-4">
         ⏳ Sorteo en: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
       </div>
-      <Image src="/premio.jpg" alt="Premio del sorteo" className="w-full max-w-xs sm:max-w-md lg:max-w-lg mt-6 rounded-lg shadow-lg" />
+      <Image src="public/PS5.jpg" alt="Premio del sorteo" className="w-full max-w-xs sm:max-w-md lg:max-w-lg mt-6 rounded-lg shadow-lg" />
       <button onClick={() => /*setShowInfoModal*/(true)} className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
         ℹ️ Información del sorteo
       </button>
