@@ -83,7 +83,7 @@ const LandingPage = () => {
         🔍 Verificar mis boletos
       </button>
       <div className="mt-6 grid grid-cols-3 gap-4">
-        {[5, 40, 100].map((num) => (
+        {[5, 15, 30].map((num) => (
           <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
             <h3 className="text-xl font-semibold">X{num}</h3>
             <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-20 object-cover mt-2" />
