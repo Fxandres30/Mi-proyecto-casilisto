@@ -82,15 +82,17 @@ const LandingPage = () => {
       <button onClick={() => /*setShowVerifyModal*/(true)} className="mt-4 bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800">
         🔍 Verificar mis boletos
       </button>
-      <div className="mt-6 grid grid-cols-3 gap-4">
-        {[5, 15, 30].map((num) => (
-          <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
-            <h3 className="text-xl font-semibold">X{num}</h3>
-            <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-50 object-cover mt-2" />
-            <p className="text-gray-700">${num * ticketPrice}</p>
-          </div>
-        ))}
-      </div>
+      
+<div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  {[5, 15, 30].map((num) => (
+    <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
+      <h3 className="text-xl font-semibold">X{num}</h3>
+      <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-32 object-cover mt-2" />
+      <p className="text-gray-700">${num * ticketPrice}</p>
+    </div>
+  ))}
+</div>
+
       <div className="flex items-center mt-4">
       <button
         onMouseDown={() => startCounting(-1)}
