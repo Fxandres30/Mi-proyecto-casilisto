@@ -11,7 +11,7 @@ const LandingPage = () => {
   const ticketPrice = 10;
   const totalPrice = ticketCount * ticketPrice;
   const totalTickets = 9999;
-  const soldTickets = 400;
+  const soldTickets = 1958;
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
   const intervalRef = useRef<NodeJS.Timeout | null>(null); 
 
@@ -86,7 +86,7 @@ const LandingPage = () => {
         {[5, 15, 30].map((num) => (
           <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
             <h3 className="text-xl font-semibold">X{num}</h3>
-            <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-20 object-cover mt-2" />
+            <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-40 object-cover mt-2" />
             <p className="text-gray-700">${num * ticketPrice}</p>
           </div>
         ))}
