@@ -117,7 +117,7 @@ const LandingPage = () => {
         🛒 Comprar Ahora
       </button>
 
-    <footer className="mt-10 text-center text-gray-600 bg-gray-700 p-4">
+   <footer className="w-full mt-10 text-center text-gray-600 bg-gray-700 p-4">
   <p className="text-sm sm:text-base">
     📧 ventas@inversionesefaat.com | 📞 3014123951
   </p>
