@@ -1,4 +1,4 @@
-// /InfoModal.
+// /InfoModal.tsx
 import React from "react";
 
 const InfoModal = ({ isOpen, onClose }) => {
