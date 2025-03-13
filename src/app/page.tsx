@@ -112,13 +112,13 @@ const LandingPage = () => {
     🛒 Comprar Ahora
   </button>
 
-      {/* Modal */}
+      /* Modal */
       <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
     </div>
   );
 };
 
-  {/* Footer corregido */}
+  /* Footer corregido */
   <footer className="w-screen mt-10 text-center text-gray-600 bg-gray-700 p-4">
     <p className="text-sm sm:text-base">
       📧 ventas@inversionesefaat.com | 📞 3014123951
