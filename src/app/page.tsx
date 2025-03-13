@@ -11,10 +11,10 @@ const LandingPage = () => {
   /*const [showVerifyModal, setShowVerifyModal] = useState(false);*/
   const [ticketCount, setTicketCount] = useState(5);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const ticketPrice = 10;
+  const ticketPrice = 100;
   const totalPrice = ticketCount * ticketPrice;
-  const totalTickets = 9999;
-  const soldTickets = 5447;
+  const totalTickets = 99999;
+  const soldTickets = 18347;
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
   const intervalRef = useRef<NodeJS.Timeout | null>(null); 
 
