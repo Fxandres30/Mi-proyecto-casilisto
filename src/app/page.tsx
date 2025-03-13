@@ -11,7 +11,7 @@ const LandingPage = () => {
   const ticketPrice = 10;
   const totalPrice = ticketCount * ticketPrice;
   const totalTickets = 9999;
-  const soldTickets = 1958;
+  const soldTickets = 3788;
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
   const intervalRef = useRef<NodeJS.Timeout | null>(null); 
 
