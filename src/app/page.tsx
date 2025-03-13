@@ -2,6 +2,7 @@ ya "use client";
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import InfoModal from "./InfoModal";
 
 const LandingPage = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
