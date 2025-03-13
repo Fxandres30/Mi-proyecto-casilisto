@@ -1,9 +1,12 @@
-// /InfoModal.tsx
-import React from "react";
+import React from "react"; 
 
-const InfoModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+interface InfoModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
+const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose }) => {
+  if (!isOpen) return null; 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-96">
