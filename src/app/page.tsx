@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "React";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import InfoModal from "./InfoModal.js";
