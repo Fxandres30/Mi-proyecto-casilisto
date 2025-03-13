@@ -1,4 +1,4 @@
-ya "use client";
+"use client";
 
 
 import React, { useState } from "React";
