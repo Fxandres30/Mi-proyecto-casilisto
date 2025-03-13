@@ -112,7 +112,7 @@ const LandingPage = () => {
     🛒 Comprar Ahora
   </button>
 
-      /* Modal */
+     /* Modal */
       <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
     </div>
   );
@@ -124,7 +124,7 @@ const LandingPage = () => {
       📧 ventas@inversionesefaat.com | 📞 3014123951
     </p>
     <div className="flex justify-center mt-2 space-x-4">
-      <a href="#" className="text-blue-500 hover:underline">📘 Facebook</a>
+      <a href="#" className="text-blue-500 hover:underline">💬 WhatsApp</a>
       <a href="#" className="text-pink-500 hover:underline">📷 Instagram</a>
     </div>
   </footer>
