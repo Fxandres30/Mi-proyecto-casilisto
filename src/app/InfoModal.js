@@ -1,4 +1,4 @@
-// components/InfoModal.js
+// /InfoModal.js
 import React from "react";
 
 const InfoModal = ({ isOpen, onClose }) => {
