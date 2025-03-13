@@ -112,7 +112,7 @@ const LandingPage = () => {
     🛒 Comprar Ahora
   </button>
 
-     /* Modal */
+     
       <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
     </div>
   );
@@ -125,7 +125,7 @@ const LandingPage = () => {
     </p>
     <div className="flex justify-center mt-2 space-x-4">
       <a href="#" className="text-blue-500 hover:underline">💬 WhatsApp</a>
-      <a href="#" className="text-pink-500 hover:underline">📷 Instagram</a>
+      <a href="https://www.instagram.com/fxandres30?igsh=MTgzbXo4cHo4cGs3cQ==" className="text-pink-500 hover:underline">📷 Instagram</a>
     </div>
   </footer>
 
