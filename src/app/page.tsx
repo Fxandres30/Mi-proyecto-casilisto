@@ -112,11 +112,11 @@ const LandingPage = () => {
     🛒 Comprar Ahora
   </button>
 
-     /* {/* Modal */}
+      {/* Modal */}
       <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
     </div>
   );
-}*/
+};
 
   {/* Footer corregido */}
   <footer className="w-screen mt-10 text-center text-gray-600 bg-gray-700 p-4">
