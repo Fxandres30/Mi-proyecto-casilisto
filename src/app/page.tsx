@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 const LandingPage = () => {
-  /*const [showInfoModal, setShowInfoModal] = useState(false);*/
+  const [showInfoModal, setShowInfoModal] = useState(false);
   /*const [showVerifyModal, setShowVerifyModal] = useState(false);*/
   const [ticketCount, setTicketCount] = useState(5);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
