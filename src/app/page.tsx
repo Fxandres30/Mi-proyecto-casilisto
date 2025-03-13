@@ -77,6 +77,9 @@ const LandingPage = () => {
   <button onClick={() => setShowInfoModal(true)} className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
     ℹ️ Información del sorteo
   </button>
+   <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
+    </div>
+
   <div className="w-full max-w-md bg-gray-200 rounded-full h-6 mt-4 overflow-hidden">
     <div className="bg-green-500 h-full transition-all duration-700 ease-in-out" style={{ width: `${progress}%` }}></div>
   </div>
