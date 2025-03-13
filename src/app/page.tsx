@@ -1,10 +1,16 @@
-"use client";
+"use client"; // ✅ Para evitar errores en el uso de useEffect
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import InfoModal from "./InfoModal"; // Asegúrate de que la ruta es correcta
+import VerifyModal from "./VerifyModal";
+import { checkSupabaseConnection, testConnection } from "../../utils/testSupabase";
 
 const LandingPage = () => {
+  const [showVerifyModal, setShowVerifyModal] = useState(false);
+  const [userInput, setUserInput] = useState("");
+  const [boletos, setBoletos] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [ticketCount, setTicketCount] = useState(5);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -14,6 +20,9 @@ const LandingPage = () => {
   const soldTickets = 69347;
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+
+
 
   useEffect(() => {
     const targetDate = new Date("2025-03-15T00:00:00");
@@ -31,6 +40,25 @@ const LandingPage = () => {
         seconds: Math.floor((difference / 1000) % 60),
       });
     };
+
+    export default function Page() {
+      useEffect(() => {
+        checkSupabaseConnection();
+      }, []);
+    
+      useEffect(() => {
+        testConnection();
+      }, []);
+    
+      return <div>Hola mundo</div>;
+    }
+
+// Función para verificar boletos (simulación)
+const handleVerifyTickets = (input: string) => {
+  console.log("Verificando boletos para:", input);
+  // Aquí deberías hacer la petición a la API para obtener los boletos
+  // Ejemplo: fetch(`/api/boletos?usuario=${input}`).then(...)
+};
     
     updateCountdown();
     const intervalId = setInterval(updateCountdown, 1000);
@@ -60,6 +88,34 @@ const LandingPage = () => {
       intervalRef.current = null;
     }
   };
+
+  const handleInputChange = (inputValue: string) => {
+    console.log("Verificando boletos para:", inputValue);
+    // Aquí iría la lógica para manejar el input del usuario
+  };
+  
+  const handleVerifyTickets = async () => {
+    setErrorMessage("");
+    try {
+      const response = await fetch("/api/verificar-boletos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ input: userInput }),
+      });
+  
+      const data = await response.json();
+      if (data.success) {
+        setBoletos(data.boletos);
+      } else {
+        setErrorMessage("No se encontraron boletos.");
+      }
+    } catch (error) {
+      setErrorMessage("Error al conectar con el servidor.");
+    }
+  };
+  
+
+  
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6 relative">
@@ -91,11 +147,24 @@ const LandingPage = () => {
     <div className="w-full max-w-md bg-gray-200 rounded-full h-6 mt-4 overflow-hidden">
           <div className="bg-green-500 h-full transition-all duration-700 ease-in-out" style={{ width: `${progress}%` }}></div>
     </div>
+
     <p className="text-gray-700 mt-2">{soldTickets} de {totalTickets} boletos vendidos</p>
-    <button onClick={() => /*setShowVerifyModal*/(true)} className="mt-4 bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800">
-      🔍 Verificar mis boletos
-    </button>
-    
+
+    <button onClick={() => setShowVerifyModal(true)} className="mt-4 bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800">
+  🔍 Verificar mis boletos
+</button>
+
+<VerifyModal 
+      isOpen={showVerifyModal} 
+      onClose={() => setShowVerifyModal(false)} 
+      onVerify={handleVerifyTickets} 
+      handleVerifyTickets={handleVerifyTickets}  // ✅ Agregar esto
+      userInput={userInput}
+      setUserInput={setUserInput}
+      boletos={boletos}
+      errorMessage={errorMessage}
+    />
+
 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 {[5, 15, 30].map((num) => (
   <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
