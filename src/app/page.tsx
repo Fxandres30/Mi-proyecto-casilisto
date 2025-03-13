@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-/*import InfoModal from "./InfoModal";*/
+import InfoModal from "./InfoModal"; // Asegúrate de que la ruta es correcta
 
 const LandingPage = () => {
-  /*const [showInfoModal, setShowInfoModal] = useState(false);*/
-  /*const [showVerifyModal, setShowVerifyModal] = useState(false);*/
+  const [showInfoModal, setShowInfoModal] = useState(false);
   const [ticketCount, setTicketCount] = useState(5);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const ticketPrice = 100;
@@ -14,10 +13,10 @@ const LandingPage = () => {
   const totalTickets = 99999;
   const soldTickets = 69347;
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
-  const intervalRef = useRef<NodeJS.Timeout | null>(null); 
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const targetDate = new Date("2025-03-30T00:00:00");
+    const targetDate = new Date("2025-03-15T00:00:00");
     const updateCountdown = () => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
@@ -72,10 +71,23 @@ const LandingPage = () => {
     <div className="bg-black text-white px-6 py-3 rounded-lg text-center mt-4">
       ⏳ Sorteo en: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
     </div>
-    <Image src="/PS5.jpg" alt="Premio del sorteo" className="w-full max-w-xs sm:max-w-md lg:max-w-lg mt-6 rounded-lg shadow-lg" />
-    <button onClick={() => /*setShowInfoModal*/(true)} className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
-      ℹ️ Información del sorteo
-    </button>
+
+    <Image src="/PS5.jpg" alt="Premio del sorteo" width={500} /*Ajusta según necesites*/ height={300} 
+     className="w-full max-w-xs sm:max-w-md lg:max-w-lg mt-6 rounded-lg shadow-lg" />
+
+
+
+  
+<div>
+      {/* Botón para abrir el modal */}
+      <button onClick={() => setShowInfoModal(true)} className="mt-5 p-2 bg-blue-500 text-white rounded">
+      ℹ️ Mas Información del sorteo
+      </button>
+
+      {/* Modal */}
+      <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
+    </div>
+    
     <div className="w-full max-w-md bg-gray-200 rounded-full h-6 mt-4 overflow-hidden">
           <div className="bg-green-500 h-full transition-all duration-700 ease-in-out" style={{ width: `${progress}%` }}></div>
     </div>
@@ -88,7 +100,7 @@ const LandingPage = () => {
 {[5, 15, 30].map((num) => (
   <div key={num} onClick={() => setTicketCount(num)} className="text-center border p-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-200">
     <h3 className="text-xl font-semibold">X{num}</h3>
-    <Image src={`/x${num}.jpg`} alt={`X${num}`} className="w-full h-65 object-cover mt-2" />
+    <Image src={`/x${num}.jpg`} alt={`X${num}`} width={300} height={200} className="w-full h-65 object-cover mt-2" />
     <p className="text-gray-700">${num * ticketPrice}</p>
   </div>
 ))}
@@ -118,13 +130,13 @@ const LandingPage = () => {
       🛒 Comprar Ahora
     </button>
 
- <footer className="w-full mt-10 text-center text-gray-600 bg-gray-700 p-4">
+ <footer className="w-full mt-10 text-center text-gray-900 p-4">
 <p className="text-sm sm:text-base">
   📧 ventas@inversionesefaat.com | 📞 3014123951
 </p>
 <div className="flex justify-center mt-2 space-x-4">
-  <a href="#" className="text-blue-500 hover:underline">📘 Facebook</a>
-  <a href="#" className="text-pink-500 hover:underline">📷 Instagram</a>
+      <a href="#" className="text-blue-500 hover:underline">💬 WhatsApp</a>
+      <a href="https://www.instagram.com/fxandres30?igsh=MTgzbXo4cHo4cGs3cQ==" className="text-pink-500 hover:underline">📷 Instagram</a>
 </div>
 </footer>
 
