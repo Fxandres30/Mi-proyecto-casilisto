@@ -113,6 +113,34 @@ const LandingPage = () => {
     🛒 Comprar Ahora
   </button>
 
+      {/* Modal */}
+      <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
+    </div>
+  );
+}
+
+
+---
+
+Explicación de lo que sucede:
+
+1. useState(false) crea una variable (showInfoModal) que inicia en false (modal cerrado).
+
+
+2. Cuando se hace clic en el botón "Abrir Modal", se cambia el estado a true, abriendo el modal.
+
+
+3. El componente <InfoModal /> recibe isOpen={showInfoModal}, así que se muestra cuando showInfoModal es true.
+
+
+4. Cuando se llama onClose, se ejecuta setShowInfoModal(false), cerrando el modal.
+
+
+
+¿Te quedó claro?
+
+
+
   {/* Footer corregido */}
   <footer className="w-screen mt-10 text-center text-gray-600 bg-gray-700 p-4">
     <p className="text-sm sm:text-base">
