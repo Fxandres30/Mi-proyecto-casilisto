@@ -19,7 +19,9 @@ const LandingPage = () => {
   const totalTickets = 99999;
   const soldTickets = 69347;
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+
 
   useEffect(() => {
     checkSupabaseConnection();
@@ -56,18 +58,22 @@ const LandingPage = () => {
   const updateTicketCount = (increment: number) => {
     setTicketCount((prev) => Math.max(5, Math.min(500, prev + increment)));
   };
- 
+
+  // Inicia el conteo continuo
   const startCounting = (increment: number) => {
+    updateTicketCount(increment); // Asegura que con un solo clic también actualice
+
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => updateTicketCount(increment), 200);
   };
- 
+
+  // Detiene el conteo continuo
   const stopCounting = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  }; 
+  };
  
   const handleVerifyTickets = async () => {
     setErrorMessage("");
