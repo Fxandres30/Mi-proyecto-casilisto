@@ -22,7 +22,15 @@ const LandingPage = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
 
-
+useEffect(() => {
+        checkSupabaseConnection();
+      }, []);
+    
+      useEffect(() => {
+        testConnection();
+      }, []);
+    
+ /*   return <div>Hola mundo</div>;*/
 
   useEffect(() => {
     const targetDate = new Date("2025-03-15T00:00:00");
@@ -40,18 +48,10 @@ const LandingPage = () => {
         seconds: Math.floor((difference / 1000) % 60),
       });
     };
+ /*
+  export default function Page() {*/
+      
 
-    export default function Page() {
-      useEffect(() => {
-        checkSupabaseConnection();
-      }, []);
-    
-      useEffect(() => {
-        testConnection();
-      }, []);
-    
-      return <div>Hola mundo</div>;
-    }
 
 // Función para verificar boletos (simulación)
 const handleVerifyTickets = (input: string) => {
@@ -183,7 +183,9 @@ const handleVerifyTickets = (input: string) => {
     >
       ➖
     </button>
+
       <p className="px-6 py-2 bg-white border">{ticketCount} boletos</p>
+
       <button
       onMouseDown={() => startCounting(1)}
       onMouseUp={stopCounting}
@@ -192,6 +194,7 @@ const handleVerifyTickets = (input: string) => {
       ➕
     </button> 
     </div>
+    
     <p className="text-xl font-semibold mt-4">Total: ${totalPrice}</p>
     <button 
       onClick={handlePurchase} 
