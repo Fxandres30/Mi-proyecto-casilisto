@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import InfoModal from "./InfoModal";
-import VerifyModal from "./VerifyModal";
-import { checkSupabaseConnection, testConnection } from "../../utils/testSupabase";
+import VerifyModal from "./VerifyModal"; 
+
 
 const LandingPage = () => {
   const [showVerifyModal, setShowVerifyModal] = useState(false);
@@ -21,13 +21,7 @@ const LandingPage = () => {
   const progress = totalTickets > 0 ? (Number(soldTickets) / Number(totalTickets)) * 100 : 0;
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-
-
-  useEffect(() => {
-    checkSupabaseConnection();
-    testConnection();
-  }, []);
-
+ 
   useEffect(() => {
     const targetDate = new Date("2025-03-15T00:00:00");
     const updateCountdown = () => {
