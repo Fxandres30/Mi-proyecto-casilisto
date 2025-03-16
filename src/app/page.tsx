@@ -68,26 +68,28 @@ const LandingPage = () => {
       intervalRef.current = null;
     }
   };
- 
-  const handleVerifyTickets = async () => {
-    setErrorMessage("");
-    try {
-      const response = await fetch("/api/verificar-boletos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input: userInput }),
-      });
 
-      const data = await response.json();
-      if (data.success) {
-        setBoletos(data.boletos);
-      } else {
-        setErrorMessage("No se encontraron boletos.");
+    const handleVerifyTickets = async () => {
+      setErrorMessage("");
+      try {
+        const response = await fetch("/api/verificar-boletos", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ input: userInput }),
+        });
+    
+        const data = await response.json();
+        if (data.success) {
+          setBoletos(data.boletos);
+        } else {
+          setErrorMessage("No se encontraron boletos.");
+        }
+      } catch (error) {  // ✅ Se agregó el bloque catch para manejar errores
+        setErrorMessage("Ocurrió un error al verificar los boletos.");
+        console.error("Error al verificar boletos:", error);
       }
-    } catch (error) {
-      setErrorMessage("Error al conectar con el servidor.");
-    }
-  };
+    };
+    
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6 relative">

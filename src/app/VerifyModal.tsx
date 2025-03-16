@@ -11,8 +11,7 @@ interface VerifyModalProps {
   
   const VerifyModal: React.FC<VerifyModalProps> = ({ 
     isOpen, 
-    onClose, 
-    onVerify, 
+    onClose,  
     handleVerifyTickets,  // ✅ Agregar esto
     userInput, 
     setUserInput, 
